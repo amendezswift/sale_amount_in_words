@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <data>
+
+    <record id="res_config_settings_view_form_sale_amount_in_words" model="ir.ui.view">
+      <field name="name">res.config.settings.view.form.sale.amount.in.words</field>
+      <field name="model">res.config.settings</field>
+      <field name="inherit_id" ref="sale.res_config_settings_view_form"/>
+      <field name="priority" eval="50"/>
+      <field name="arch" type="xml">
+
+        <!-- Insertar dentro del bloque de "Cotizaciones y órdenes" -->
+        <xpath expr="//block[@name='quotation_order_setting_container']" position="inside">
+            <setting id="sale_amount_total_words_setting"
+                    string="Total en letras en cotizaciones/órdenes"
+                    help="Muestra el total en letras en los reportes de cotización.">
+                <field name="display_sale_amount_total_words" class="w-auto"/>
+            </setting>
+        </xpath>
+      </field>
+    </record>
+
+  </data>
+</odoo>

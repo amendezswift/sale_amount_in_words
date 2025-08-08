@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <data>
+
+    <template id="report_saleorder_amount_in_words"
+              inherit_id="sale.report_saleorder_document">
+      <!-- Inserta cerca del total (ajusta el xpath según tu layout si lo deseas) -->
+      <xpath expr="//div[contains(@class, 'row')][last()]" position="after">
+        <div class="mb-2">
+          <p class="text-end lh-sm"
+             t-if="doc.company_id.display_sale_amount_total_words">
+            Total en letras<br/>
+            <small class="text-muted lh-sm">
+              <span t-field="doc.amount_total_words"/>
+            </small>
+          </p>
+        </div>
+      </xpath>
+    </template>
+
+  </data>
+</odoo>
